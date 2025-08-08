@@ -23,3 +23,8 @@ function Es6(props) {
 }
 
 export default Es6;
+
+
+
+
+
