@@ -16,8 +16,8 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Es6 from './Compontent/Es6';
-import { Children } from 'react';
 import Child from './Compontent/Child';
+import List from './Compontent/List';
 
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
           <Route path="/es6" element={<Es6 />} />
            <Route path="/child" element={< Child/>} />
           {/* <Route path="/about" element={<About />} /> */}
+          <Route path="/list" element={< List/>} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,12 +1,13 @@
 import React from 'react';
+import "./Child.css";
 
 function Child(props) {
-  return (
-    <div>
-      <h2>This is the ES6 Component</h2>
-      <p>Message: {props.message}</p>
-    </div>
-  );
+  if(props.isLoggedIn){
+    return<h1>Welcome back!</h1>;
+  } else{
+    return<h1 class="na">Please Login<span class="s">!</span></h1>;
+  }
+  
 }
 
 export default Child;
