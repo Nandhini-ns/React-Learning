@@ -1,0 +1,24 @@
+.btn-container{
+    text-align: center;
+    margin-top: 20px;
+}
+ .bt{
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+ }
+ .btn-inc{
+    background-color: green;
+ }
+ .btn-dec{
+    background-color: red;
+ }
+ .btn-inc:hover{
+    background-color: rgb(4, 81, 4);
+ }
+ .btn-dec:hover{
+    background-color: rgb(197, 7, 7);
+ }

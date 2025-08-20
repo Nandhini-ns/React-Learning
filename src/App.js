@@ -18,7 +18,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Es6 from './Compontent/Es6';
 import Child from './Compontent/Child';
 import List from './Compontent/List';
-
+import Hooks from './Compontent/Hooks';
+import  Capp from './Compontent/Capp';
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
            <Route path="/child" element={< Child/>} />
           {/* <Route path="/about" element={<About />} /> */}
           <Route path="/list" element={< List/>} />
+           <Route path="/hooks" element={< Hooks/>} />
+                 <Route path="/capp" element={<Capp/>} />
         </Routes>
       </BrowserRouter>
     </div>
