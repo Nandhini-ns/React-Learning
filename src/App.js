@@ -20,6 +20,7 @@ import Child from './Compontent/Child';
 import List from './Compontent/List';
 import Hooks from './Compontent/Hooks';
 import  Capp from './Compontent/Capp';
+import Login from './Compontent/Signup/Login';
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
           {/* <Route path="/about" element={<About />} /> */}
           <Route path="/list" element={< List/>} />
            <Route path="/hooks" element={< Hooks/>} />
-                 <Route path="/capp" element={<Capp/>} />
+           <Route path="/capp" element={<Capp/>} />
+           <Route path="/login" element={<Login/>} />
         </Routes>
       </BrowserRouter>
     </div>
