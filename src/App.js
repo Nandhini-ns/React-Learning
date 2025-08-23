@@ -21,6 +21,9 @@ import List from './Compontent/List';
 import Hooks from './Compontent/Hooks';
 import  Capp from './Compontent/Capp';
 import Login from './Compontent/Signup/Login';
+import StudentTable from './Compontent/Curd Opration/StudentTable';
+import Create from './Compontent/Curd Opration/Create';
+
 
 function App() {
   return (
@@ -34,6 +37,8 @@ function App() {
            <Route path="/hooks" element={< Hooks/>} />
            <Route path="/capp" element={<Capp/>} />
            <Route path="/login" element={<Login/>} />
+           <Route path="/studenttable" element={<StudentTable/>} />
+           <Route path="/create" element={<Create/>} />
         </Routes>
       </BrowserRouter>
     </div>

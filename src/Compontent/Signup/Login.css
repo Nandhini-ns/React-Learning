@@ -1,4 +1,4 @@
-body {
+.login-page {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -20,9 +20,11 @@ body {
 
 .header {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  justify-content: space-between;
   align-items: center;
-  margin-top: 15px;
+  /* margin-top: 25px; */
+  margin-top: 25px;
 }
 
 .text {
@@ -128,10 +130,10 @@ body {
   font-weight: 600;
 }
 
-.submit-container {
+.switch-btns {
   display: flex;
-  gap: 15px;
-  margin: 25px auto 10px auto;
+  gap: 85px;
+  margin: -28px auto 25px auto;
 }
 
 .submit {

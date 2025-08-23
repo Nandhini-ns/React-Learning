@@ -55,10 +55,33 @@ const handleInputChange = (field, value) => {
   
 
   return (
+    <div className="login-page">
     <div className="container">
       <div className="header">
-        <div className="text">{action}</div>
-        <div className="underline"></div>
+        {/* <div className="text">{action}</div>
+        <div className="underline"></div> */}
+          <div className="switch-btns">
+        <div
+          className={action === "Login" ? "submit gray" : "submit"}
+          onClick={() => {
+            setAction("Sign Up");
+            setErrors({});
+            setSubmitted(false);
+          }}
+        >
+          Sign Up
+        </div>
+        <div
+          className={action === "Sign Up" ? "submit gray" : "submit"}
+          onClick={() => {
+            setAction("Login");
+            setErrors({});
+            setSubmitted(false);
+          }}
+        >
+          Login
+        </div>
+      </div>
       </div>
 
        {action === "Sign Up" && (
@@ -106,34 +129,10 @@ const handleInputChange = (field, value) => {
           Forgot Password? <span>Click Here!</span>
         </div>
       )}
-      
-
-      <div className="submit-container">
-        <div
-          className={action === "Login" ? "submit gray" : "submit"}
-          onClick={() => {
-            setAction("Sign Up");
-            setErrors({});
-            setSubmitted(false);
-          }}
-        >
-          Sign Up
-        </div>
-        <div
-          className={action === "Sign Up" ? "submit gray" : "submit"}
-          onClick={() => {
-            setAction("Login");
-            setErrors({});
-            setSubmitted(false);
-          }}
-        >
-          Login
-        </div>
-      </div>
-
       <button className="submit-btn" onClick={handleSubmit}>
         {action}
       </button>
+    </div>
     </div>
   );
 }
