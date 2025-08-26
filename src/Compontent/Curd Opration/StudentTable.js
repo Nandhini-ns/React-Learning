@@ -1,4 +1,4 @@
-import React,{ useState,useEffect,useRef } from 'react';
+import React,{ useState,useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import './Student.css';
 import { BsThreeDotsVertical, BsEye, BsPencil, BsTrash } from "react-icons/bs";
@@ -7,18 +7,26 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 export default function StudentTable() {
-   const [open, setOpen] = useState(false);
-   const menuRef = useRef(null);
+   const [openRow, setOpenRow] = useState(null);
+   const [students, setStudents] = useState([]);
    const navigate = useNavigate();
+   
 
-   useEffect(()=>{
-    const handleClickOutside = (event)=>{if(menuRef.current && !menuRef.current.contains(event.target)){
-      setOpen(false);
+   useEffect(() => {
+    fetch("https://68ad5410a0b85b2f2cf2e145.mockapi.io/student")
+    .then((res) => res.json())
+    .then ((data)=> setStudents(data))
+    .catch((err)=>console.error("Error fetching data:", err))
+   },[]);
+
+    const toggleDropdown = (id) => {
+    if (openRow === id) {
+      setOpenRow(null); 
+    } else {
+      setOpenRow(id); 
     }
   };
-     document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
-   },[]);
+
   return (
     <div>
         <div className='container-s'>
@@ -29,76 +37,60 @@ export default function StudentTable() {
                     <thead>
                         <tr>
                             <th>#</th>
-                           <th>ID</th>
+                           <th>S.ID</th>
                            <th>Name</th>
                            <th>Place</th>
                            <th>Phone</th>
                            <th>Actions</th> 
                         </tr>
                     </thead>
-                    {/* <tbody className='tal'>
-                      <tr>
-                      <td>1</td>
-                      <td>1001</td>
-                      <td>Ji</td>
-                      <td>Thanjavur</td>
-                      <td>7865930108</td>
-                      {/* <td>
-                         <button className="btn-action view">
-                            <BsEye /> 
-                         </button>
-                         <button className="btn-action edit">
-                           <BsPencil /> 
-                          </button>
-                            <button className="btn-action delete">
-                               <BsTrash /> 
-                            </button>
-                       </td> */}
-
-                     <tbody className='tal'>
-                          <tr>
-                              <td>1</td>
-                              <td>1001</td>
-                              <td>Ji</td>
-                              <td>Thanjavur</td>
-                              <td>7865930108</td>
+                         <tbody>
+                             {students.map((student, i) => (
+                                <tr key={student.id}>
+                                 <td>{i + 1}</td>
+                                 <td>{student.studentId}</td>
+                                  <td>{student.name}</td>
+                                 <td>{student.place}</td>
+                                  <td>{student.phone}</td>
                                 <td className="position-relative">
-  <div ref={menuRef} style={{ display: "inline-block", position: "relative" }}>
-    {/* 3 dots button */}
-    <button
-      className="btn btn-light btn-sm"
-      onClick={() => setOpen(!open)}
-    >
-      <BsThreeDotsVertical />
-    </button>
+                                 <div style={{ display: "inline-block", position: "relative" }}>
+                              
+                               <button
+                               className="btn btn-light btn-sm"
+                                   onClick={() => toggleDropdown(student.id)}
+                                 >
+                                  <BsThreeDotsVertical />
+                                  </button>
 
-    {/* Dropdown */}
-    {open && (
-      <div
-        className="custom-dropdown">
-        <button className="dropdown-item d-flex align-items-center">
-          <BsEye style={{ marginRight: "8px",color:"blue",width:"100px" }} />
-        </button>
-        <button className="dropdown-item d-flex align-items-center">
-          <BsPencil style={{ marginRight: "8px" }} />
-        </button>
-        <button className="dropdown-item text-danger d-flex align-items-center">
-          <BsTrash style={{ marginRight: "8px" }} /> 
-        </button>
-      </div>
-    )}
-  </div>
-</td>
+                                  {openRow === student.id && (
+                               <div
+                                 className="custom-dropdown">
+                                 <button className="dropdown-item d-flex align-items-center">
+                                 <BsEye style={{ marginRight: "8px",color:"blue",fontSize:"20px" }} />
+                                 </button>
+                                  <button className="dropdown-item d-flex align-items-center">
+                                          <BsPencil style={{ marginRight: "8px",fontSize:"20px",color:"green" }} />
+                                  </button>
+                                  <button className="dropdown-item text-danger d-flex align-items-center">
+                                        <BsTrash style={{ marginRight: "8px",fontSize:"20px"}} /> 
+                                  </button>
+                               </div>
+                             )}
+                            </div>
+                         </td>
 
-                              </tr>
-                       </tbody>
+                        </tr>
+                        ))}
+                    </tbody>
 
-                </table>
+              </table>
 
             </div>
 
-        </div>
-    </div>
-  )
+         </div>
+     </div>
+   )
 }
+
+
 

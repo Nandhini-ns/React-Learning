@@ -58,8 +58,6 @@ const handleInputChange = (field, value) => {
     <div className="login-page">
     <div className="container">
       <div className="header">
-        {/* <div className="text">{action}</div>
-        <div className="underline"></div> */}
           <div className="switch-btns">
         <div
           className={action === "Login" ? "submit gray" : "submit"}

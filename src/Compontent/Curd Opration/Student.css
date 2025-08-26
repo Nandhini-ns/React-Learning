@@ -13,7 +13,7 @@
   margin-bottom: 20px;
   color: #4a226d;
   font-size: 22px;
-  font-weight: 600;
+  font-weight:bold;
 }
 
 .table-container {
@@ -69,34 +69,10 @@ tbody tr:hover {
   background-color: #f1e9f9;
 }
 
-/* .btn-action { */
-/* .dropdown-item{
-  border: none;
-  padding: 6px 10px;
-  margin: 0 4px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-.btn-action.view {
-  background-color: #0dcaf0;
-  color: white;
-}
-
-.btn-action.edit {
-  background-color: #ffc107;
-  color: black;
-}
-
-.btn-action.delete {
-  background-color: #dc3545;
-  color: white;
-} */
-
 .custom-dropdown {
   position: absolute;
-  top: -97%;       /* button ku adikula varum */
-  right: 0;        /* table cell right side ku align aagum */
+  top: -97%;       
+  right: 0;        
   margin-top: 11px;
   background: #fff;
   border: 1px solid #ddd;
@@ -104,7 +80,6 @@ tbody tr:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 2000;
   min-width: 47px;
-  /* padding: 5px 0; */
   left: 31px;
 
 }
@@ -123,4 +98,50 @@ tbody tr:hover {
 
 .custom-dropdown .dropdown-item:hover {
   background-color: #f1f1f1;
+}
+
+.container-c{
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  max-width: 400px;
+  margin: 50px auto;
+}
+.container-c h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #962c8d;
+  font-size: 24px;
+  font-weight:bold;
+}
+
+.btn-save{
+  background-color:#962c8d !important;
+  color: #fff !important;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  transition: 0.3s;
+}
+.btn-back{
+  background-color: #6e2c96 !important;
+  color: #fff !important;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-save:hover{
+  background-color: #571c78 !important;
+}
+.form-control:focus{
+  border-color: #6e2c96 !important;
+  box-sizing: 0 0 5px rgba(110,44,150,0.5) !important;
+}
+.error-message{
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
 }
