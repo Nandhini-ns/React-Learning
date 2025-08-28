@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function Create() {
   const[errors, setErrors]=useState({});
+  const [success, setSuccess] = useState("");
   const navigate=useNavigate();
     const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +31,11 @@ function Create() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ studentId, name, place, phone }),
         });
-        navigate("/studenttable"); 
+         
+         setSuccess("Student data saved successfully!"); 
+        setTimeout(() => {
+          navigate("/studenttable"); 
+        }, 2000);
       } catch (error) {
         console.error("Error saving student:", error);
       }
@@ -40,27 +45,32 @@ function Create() {
   return (
   <div className="container-c">
       <h2 className="text-center mb-4">Add New Student</h2>
+        {success && (
+           <div className="alert alert-success text-center" role="alert">
+          {success}
+          </div>
+        )}
       <form className="p-3" onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="studentId" className="form-label"><b>StudentId<snap style={{color:"#962c8d"}}>*</snap></b></label>
+          <label htmlFor="studentId" className="form-label"><b>StudentId<span style={{color:"#962c8d"}}>*</span></b></label>
           <input type="text" id="studentId" name="studentId" className="form-control" onChange={ (e) => { if (errors.studentId) { setErrors({ ...errors, studentId: "" }); }}} />
           {errors.studentId && <div className="error-message">{errors.studentId}</div>}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="name" className="form-label"><b>Name<snap style={{color:"#962c8d"}}>*</snap></b></label>
+          <label htmlFor="name" className="form-label"><b>Name<span style={{color:"#962c8d"}}>*</span></b></label>
           <input type="text" id="name" name="name" className="form-control" onChange={ (e) => { if (errors.name) { setErrors({ ...errors, name: "" }); }}}/>
           {errors.name && <div className="error-message">{errors.name}</div>}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="place" className="form-label"><b>Place<snap style={{color:"#962c8d"}}>*</snap></b></label>
+          <label htmlFor="place" className="form-label"><b>Place<span style={{color:"#962c8d"}}>*</span></b></label>
           <input type="text" id="place" name="place" className="form-control" onChange={ (e) => { if (errors.place) { setErrors({ ...errors, place: "" }); }}} />
           {errors.place && <div className="error-message">{errors.place}</div>}
         </div>
 
         <div className="mb-3">
-          <label htmlFor="phone" className="form-label"><b>Phone No<snap style={{color:"#962c8d"}}>*</snap></b></label>
+          <label htmlFor="phone" className="form-label"><b>Phone No<span style={{color:"#962c8d"}}>*</span></b></label>
           <input type="text" id="phone" name="phone" className="form-control" maxLength="10" onChange={ (e) => {e.target.value=e.target.value.replace(/[^0-9]/g,""); if (errors.phone) { setErrors({ ...errors, phone: "" }); }}} />
           {errors.phone && <div className="error-message">{errors.phone}</div>}
         </div>

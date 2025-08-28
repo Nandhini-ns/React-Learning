@@ -26,6 +26,28 @@ export default function StudentTable() {
       setOpenRow(id); 
     }
   };
+   
+     const handleView = (id) => {
+     navigate(`/view/${id}`);
+       };
+
+       const handleEdit=(id)=>{
+        navigate(`/edit/${id}`);
+       };
+
+     const handleDelete = async (id) => {
+      if (window.confirm("Are you sure you want to delete this record?")) {
+         try {
+          await fetch(`https://68ad5410a0b85b2f2cf2e145.mockapi.io/student/${id}`, {
+            method: "DELETE",
+          });
+          setStudents(students.filter((student) => student.id !== id));
+        } catch (error) {
+           console.error("Error deleting student:", error);
+        }
+        }
+      }; 
+
 
   return (
     <div>
@@ -65,13 +87,13 @@ export default function StudentTable() {
                                   {openRow === student.id && (
                                <div
                                  className="custom-dropdown">
-                                 <button className="dropdown-item d-flex align-items-center">
+                                 <button className="dropdown-item d-flex align-items-center"  onClick={() => handleView(student.id)}>
                                  <BsEye style={{ marginRight: "8px",color:"blue",fontSize:"20px" }} />
                                  </button>
-                                  <button className="dropdown-item d-flex align-items-center">
+                                  <button className="dropdown-item d-flex align-items-center" onClick={() => handleEdit(student.id)}>
                                           <BsPencil style={{ marginRight: "8px",fontSize:"20px",color:"green" }} />
                                   </button>
-                                  <button className="dropdown-item text-danger d-flex align-items-center">
+                                  <button className="dropdown-item text-danger d-flex align-items-center"  onClick={() => handleDelete(student.id)}>
                                         <BsTrash style={{ marginRight: "8px",fontSize:"20px"}} /> 
                                   </button>
                                </div>

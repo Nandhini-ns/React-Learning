@@ -145,3 +145,17 @@ tbody tr:hover {
   font-size: 13px;
   margin-top: 5px;
 }
+
+.vie{
+    text-align: center;
+  margin-bottom: 20px;
+  color: #1b238b !important;
+  font-size: 22px;
+  font-weight:bold;
+}
+.btn-ve{
+   background-color: #1b238b !important;
+}
+
+
+

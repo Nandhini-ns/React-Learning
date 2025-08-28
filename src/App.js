@@ -23,6 +23,7 @@ import  Capp from './Compontent/Capp';
 import Login from './Compontent/Signup/Login';
 import StudentTable from './Compontent/Curd Opration/StudentTable';
 import Create from './Compontent/Curd Opration/Create';
+import View from './Compontent/Curd Opration/View';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
            <Route path="/login" element={<Login/>} />
            <Route path="/studenttable" element={<StudentTable/>} />
            <Route path="/create" element={<Create/>} />
+            <Route path="/view/:id" element={<View/>} />
         </Routes>
       </BrowserRouter>
     </div>
