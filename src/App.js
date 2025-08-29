@@ -41,6 +41,7 @@ function App() {
            <Route path="/studenttable" element={<StudentTable/>} />
            <Route path="/create" element={<Create/>} />
             <Route path="/view/:id" element={<View/>} />
+             <Route path="/edit/:id" element={<Create/>} />
         </Routes>
       </BrowserRouter>
     </div>

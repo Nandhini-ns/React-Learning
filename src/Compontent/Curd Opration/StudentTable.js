@@ -59,7 +59,7 @@ export default function StudentTable() {
                     <thead>
                         <tr>
                             <th>#</th>
-                           <th>S.ID</th>
+                           <th>S.Id</th>
                            <th>Name</th>
                            <th>Place</th>
                            <th>Phone</th>
@@ -70,7 +70,7 @@ export default function StudentTable() {
                              {students.map((student, i) => (
                                 <tr key={student.id}>
                                  <td>{i + 1}</td>
-                                 <td>{student.studentId}</td>
+                                 <td>{student.studentid}</td>
                                   <td>{student.name}</td>
                                  <td>{student.place}</td>
                                   <td>{student.phone}</td>

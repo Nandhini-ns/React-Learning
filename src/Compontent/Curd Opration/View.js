@@ -21,7 +21,7 @@ export default function View() {
        <h2 className="text-center mb-4 vie">View Student</h2>
       <table className="table table-bordered">
         <tbody>
-          <tr><th>Student ID</th><td>{student.studentId}</td></tr>
+          <tr><th>Student Id</th><td>{student.studentid}</td></tr>
           <tr><th>Name</th><td>{student.name}</td></tr>
           <tr><th>Place</th><td>{student.place}</td></tr>
           <tr><th>Phone</th><td>{student.phone}</td></tr>
